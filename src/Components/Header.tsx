@@ -12,12 +12,12 @@ export default function Header() {
         </Navbar.Brand>
         <ButtonGroup>
           <Button>
-            <Link to="logIn" style={{ color: "white" }}>
+            <Link to="logIn" style={{ color: "#ffff" }}>
               Log In
             </Link>
           </Button>
           <Button>
-            <Link to="signIn" style={{ color: "white" }}>
+            <Link to="signIn" style={{ color: "#ffff" }}>
               Sign In
             </Link>
           </Button>

@@ -9,17 +9,20 @@ export default function Footer(): JSX.Element {
         <Button>
           <a
             href="https://www.linkedin.com/in/santiago-weihmuller-54539319b/"
-            style={{ color: "white" }}
+            style={{ color: "#ffff" }}
           >
             Linkedin
           </a>
         </Button>
         <Button>
-          <a href="https://github.com/SantiW01" style={{ color: "white" }}>
+          <a href="https://github.com/SantiW01" style={{ color: "#ffff" }}>
             Github
           </a>
         </Button>
       </ButtonGroup>
+      <p className="made_by" style={{ color: "#ffff" }}>
+        Made by Santiago Weihmüller
+      </p>
     </Navbar>
   );
 }

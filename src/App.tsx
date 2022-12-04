@@ -6,7 +6,7 @@ import LogIn from "./Components/LogIn";
 import SignIn from "./Components/SignIn";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
-function App() {
+function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Header />
