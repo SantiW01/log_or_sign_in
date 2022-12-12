@@ -1,23 +1,19 @@
-import React, { useState } from "react";
-import { UserModel } from "../Models/UserModel";
-
+import { useState } from "react";
 interface IProps {
   target: EventTarget & HTMLInputElement;
 }
+export const useForm = (initialState: any = []) => {
+  const [formState, setFormState] = useState<any>(initialState);
 
-export default function useLogOrSignIn() {
-  const [user, setUser] = useState<UserModel>({
-    user_name: "",
-    user_email: "",
-    user_password: "",
-    repeatUserPassword: "",
-  });
-
-  function handleInputChange({ target }: IProps) {
-    setUser({
-      ...user,
+  const handleInputChange = ({ target }: IProps) => {
+    setFormState({
+      ...formState,
       [target.name]: target.value,
     });
-  }
-  return [user, handleInputChange];
-}
+  };
+  const resetForm = () => {
+    setFormState(initialState);
+  };
+
+  return [formState, handleInputChange, resetForm];
+};

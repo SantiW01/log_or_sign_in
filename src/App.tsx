@@ -2,8 +2,8 @@ import React from "react";
 import "./Style/App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
-import LogIn from "./Components/LogIn";
-import SignIn from "./Components/SignIn";
+import LogIn from "./Components/auth/LogIn";
+import SignIn from "./Components/auth/SignIn";
 import Home from "./Components/Home";
 import Footer from "./Components/Footer";
 function App(): JSX.Element {
