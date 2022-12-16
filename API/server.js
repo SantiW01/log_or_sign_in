@@ -13,11 +13,11 @@ db.once("open", () => console.log("Connected to DataBase"));
 
 app.use(express.json());
 
-const postSubscribers = require("./Routers/PostSubscribers");
-app.use("/insert", postSubscribers);
+const postUser = require("./Routers/PostUsers");
+app.use("/insert", postUser);
 
-const getSubscriber = require("./Routers/GetSubscribers");
-app.use("/get", getSubscriber);
+const getUser = require("./Routers/GetUsers");
+app.use("/get", getUser);
 
 app.listen(8080, () => {
   console.log("Server listening at 8080");
