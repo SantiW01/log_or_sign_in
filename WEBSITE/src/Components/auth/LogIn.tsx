@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import "../../Style/Form.css";
 import { Form, InputGroup } from "react-bootstrap";
 import { useForm } from "../../Hooks/useLogOrSignIn";
@@ -9,6 +9,25 @@ export default function LogIn() {
     user_password: "",
     repeatUserPassword: "",
   });
+  const { user_name, user_email, user_password, repeatUserPassword } =
+    formState;
+  function handleSubmit(e: SyntheticEvent) {
+    e.preventDefault();
+    fetch("http://localhost:8080/insert", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      mode: "cors",
+      body: JSON.stringify({
+        user_name,
+        user_email,
+        user_password,
+      }),
+    });
+    console.log("Working");
+  }
+
   return (
     <Form.Group controlId="formGroup__logIn" className="form__logIn">
       <Form.Label>Username</Form.Label>
@@ -43,7 +62,7 @@ export default function LogIn() {
         type="password"
         placeholder="Repeat Password"
       />
-      <Form.Control type="submit" placeholder="Submit" />
+      <Form.Control type="submit" placeholder="Submit" onClick={handleSubmit} />
     </Form.Group>
   );
 }
