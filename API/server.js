@@ -1,6 +1,7 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
+const cors = require('cors')
 const app = express();
 
 mongoose.set("strictQuery", false);
@@ -12,6 +13,7 @@ db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to DataBase"));
 
 app.use(express.json());
+app.use(cors())
 
 const postUser = require("./Routers/PostUsers");
 app.use("/insert", postUser);
