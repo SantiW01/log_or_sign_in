@@ -21,6 +21,9 @@ app.use("/insert", postUser);
 const getUser = require("./Routers/GetUsers");
 app.use("/get", getUser);
 
+const deleteUser = require('./Routers/DeleteUsers');
+app.use('/delete', deleteUser);
+
 app.listen(8080, () => {
   console.log("Server listening at 8080");
 });
