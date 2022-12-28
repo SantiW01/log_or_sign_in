@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from "react";
 import "../../Style/Form.css";
-import { Form, InputGroup } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { useForm } from "../../Hooks/useLogOrSignIn";
 export default function LogIn() {
   const [formState, handleInputChange] = useForm({
@@ -9,8 +9,7 @@ export default function LogIn() {
     user_password: "",
     repeatUserPassword: "",
   });
-  const { user_name, user_email, user_password, repeatUserPassword } =
-    formState;
+  const { user_name, user_email, user_password } = formState;
   function handleSubmit(e: SyntheticEvent) {
     e.preventDefault();
     fetch("http://localhost:8080/insert", {
@@ -37,6 +36,7 @@ export default function LogIn() {
         name="user_name"
         type="text"
         placeholder="Username"
+        required
       />
       <Form.Label>Email</Form.Label>
       <Form.Control
@@ -45,6 +45,7 @@ export default function LogIn() {
         name="user_email"
         type="email"
         placeholder="Email"
+        required
       />
       <Form.Label>Password</Form.Label>
       <Form.Control
@@ -53,6 +54,7 @@ export default function LogIn() {
         name="user_password"
         type="password"
         placeholder="Password"
+        required
       />
       <Form.Label>Repeat Password</Form.Label>
       <Form.Control
@@ -62,7 +64,18 @@ export default function LogIn() {
         type="password"
         placeholder="Repeat Password"
       />
-      <Form.Control type="submit" placeholder="Submit" onClick={handleSubmit} />
+      <Form.Control
+        type="submit"
+        placeholder="Submit"
+        onClick={handleSubmit}
+        disabled={
+          !formState.user_name ||
+          !formState.user_email ||
+          !formState.user_password ||
+          formState.user_password.length < 8 ||
+          formState.user_password !== formState.repeatUserPassword
+        }
+      />
     </Form.Group>
   );
 }
