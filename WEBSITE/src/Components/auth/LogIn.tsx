@@ -76,6 +76,11 @@ export default function LogIn() {
           formState.user_password !== formState.repeatUserPassword
         }
       />
+      {formState.user_password !== formState.repeatUserPassword && (
+        <div className="warning">
+          <p>Warning! Password don't match</p>
+        </div>
+      )}
     </Form.Group>
   );
 }

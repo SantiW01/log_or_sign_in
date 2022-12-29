@@ -2,3 +2,16 @@
   width: 40%;
   margin: 4rem 0px 0px 30%;
 }
+
+.warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  color: #fff;
+  font-size: larger;
+}
+.warning p {
+  background-color: #ffd600;
+  padding: 10px;
+}
