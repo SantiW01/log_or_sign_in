@@ -24,7 +24,6 @@ export default function LogIn() {
         user_password,
       }),
     });
-    console.log("Working");
   }
 
   return (

@@ -1,7 +1,7 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
-const cors = require('cors')
+const cors = require("cors");
 const app = express();
 
 mongoose.set("strictQuery", false);
@@ -13,16 +13,19 @@ db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to DataBase"));
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 const postUser = require("./Routers/PostUsers");
 app.use("/insert", postUser);
 
-const getUser = require("./Routers/GetUsers");
-app.use("/get", getUser);
+const getUsers = require("./Routers/GetUsers");
+app.use("/get", getUsers);
 
-const deleteUser = require('./Routers/DeleteUsers');
-app.use('/delete', deleteUser);
+const findUser = require("./Routers/GetUser");
+app.use("/find", findUser);
+
+const deleteUser = require("./Routers/DeleteUsers");
+app.use("/delete", deleteUser);
 
 app.listen(8080, () => {
   console.log("Server listening at 8080");
